@@ -20,8 +20,8 @@ public class GradingProgramTest {
     //testing if grade is valid
     @Test
     public void validGradesPoints() {
-
-        assertTrue(GradingProgram.gradePoints());
+        int points = 40;
+        assertTrue(GradingProgram.gradePoints(points));
     }
     //
 }

@@ -2,14 +2,19 @@ import java.util.Scanner;
 
 public class GradingProgram {
     public static boolean studentAmount(int students) {
-        if (students < 1 || students > 60)
+        if (students < 1 || students > 60) {
             return false;
-        else;
+        }
+        else
         return true;
     }
 
-    public static boolean gradePoints() {
-        if ()
+    public static boolean gradePoints(int points) {
+        if (points < 0 || points > 100) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }
 
