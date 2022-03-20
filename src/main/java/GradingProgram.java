@@ -8,11 +8,8 @@ public class GradingProgram {
         return true;
     }
 
-
-    public static void main(String[] args) {
-
-
-
+    public static boolean gradePoints() {
+        if ()
     }
 }
 

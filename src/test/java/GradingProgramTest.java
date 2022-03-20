@@ -19,6 +19,9 @@ public class GradingProgramTest {
 
     //testing if grade is valid
     @Test
-    public void
+    public void validGradesPoints() {
+
+        assertTrue(GradingProgram.gradePoints());
+    }
     //
 }
