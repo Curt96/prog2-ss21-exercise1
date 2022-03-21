@@ -2,6 +2,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GradingProgram {
+
+    public static final int MINIMAL_POINTS = 37;
+    public static final int MODULO_FACTOR = 5;
+    public static final int SCHWELLE = 3;
+
     protected static boolean studentAmount(int students) { //ist dann auch die anzahl der Noten = Länge vom Array
         return (students > 0 && students <= 60);
     }
@@ -13,7 +18,6 @@ public class GradingProgram {
     protected static List<Integer> gradingStudents(List<Integer> grades) {
         List<Integer> studentsGrades = new ArrayList<>();
         for (Integer index : grades) {
-            System.out.println(index + " Vor dem if");
             studentsGrades.add(roundGrade(index));
         }
         return studentsGrades;
@@ -21,12 +25,8 @@ public class GradingProgram {
 
     protected static Integer roundGrade(Integer singleGrade) {
         int finaleGrade = singleGrade;
-        if (singleGrade > 37 && (singleGrade % 5 >= 3)) { //wenn es näher zu 5 ist aufrunden
-            System.out.println(singleGrade + " Im if vor dem runden");
-            finaleGrade += (5 - singleGrade % 5); //53 % 5 = 3 -> 53 + ( 5 - 3(=actual[i] %5)  = 55
-            System.out.println(singleGrade + " nach dem runden");
-        } else {
-            System.out.println(singleGrade + " Im else");
+        if (singleGrade > MINIMAL_POINTS && (singleGrade % MODULO_FACTOR >= SCHWELLE)) {
+            finaleGrade += (MODULO_FACTOR - singleGrade % MODULO_FACTOR);
         }
         return finaleGrade;
     }
