@@ -7,10 +7,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class GradingProgramTest {
     // Input Students 1 <= n <= 60
-    // Input grade 0 <= grades i <= 100
-    // Input enthält nur Zahlen?
+    // Input 0 <= grades i <= 100
     // Grade less 40 is failing Grade
-    //
 
     //testing if the students amount is valid
     @Test
@@ -51,10 +49,16 @@ public class GradingProgramTest {
     //testing if grades correct rounded
     @Test
     void gradingStudents_valid_list() {
-        List<Integer> studentsGradesActual = new ArrayList<>(Arrays.asList(73, 67, 38, 33)); //https://www.geeksforgeeks.org/initialize-an-arraylist-in-java/
+        List<Integer> studentsGradesActual = new ArrayList<>(Arrays.asList(4, 73, 67, 38, 33)); //https://www.geeksforgeeks.org/initialize-an-arraylist-in-java/
         List<Integer> studentsGradesExpected = new ArrayList<>((Arrays.asList(75, 67, 40, 33)));
 
         assertEquals(studentsGradesExpected, GradingProgram.gradingStudents(studentsGradesActual));
+    }
+    @Test
+    void first_int_is_Student_Amount() {
+        List<Integer> studentsGradesActual = new ArrayList<>(Arrays.asList(4 ,73, 67, 38, 33));
+
+        assertEquals(4,GradingProgram.students(studentsGradesActual));
     }
 
     @Test

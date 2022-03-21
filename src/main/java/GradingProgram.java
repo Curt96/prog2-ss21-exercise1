@@ -17,22 +17,30 @@ public class GradingProgram {
 
     protected static List<Integer> gradingStudents(List<Integer> grades) {
         List<Integer> studentsGrades = new ArrayList<>();
-        for (Integer index : grades) {
-            studentsGrades.add(roundGrade(index));
+        if (studentAmount(grades.get(0))) {
+            for (int i = 1; i < grades.size(); i++) {
+                studentsGrades.add(roundGrade(grades.get(i)));
+            }
         }
         return studentsGrades;
     }
 
     protected static Integer roundGrade(Integer singleGrade) {
         int finaleGrade = singleGrade;
-        if (singleGrade > MINIMAL_POINTS && (singleGrade % MODULO_FACTOR >= SCHWELLE)) {
-            finaleGrade += (MODULO_FACTOR - singleGrade % MODULO_FACTOR);
+        if (gradePoints(singleGrade)) {
+            if (singleGrade > MINIMAL_POINTS && (singleGrade % MODULO_FACTOR >= SCHWELLE)) {
+                finaleGrade += (MODULO_FACTOR - singleGrade % MODULO_FACTOR);
+            }
         }
         return finaleGrade;
     }
 
     public static boolean passed_Exam(int pointsOccursaFail) {
         return pointsOccursaFail > 40;
+    }
+
+    public static int students(List<Integer> studentsGradesActual) {
+            return studentsGradesActual.get(0);
     }
 }
 
