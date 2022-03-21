@@ -1,4 +1,3 @@
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,7 +14,6 @@ public class GradingProgramTest {
 
     //testing if the students amount is valid
     @Test
-    @DisplayName("Students should between 1 and 60")
     void studentAmount_is_valid() {
         int students = 47;
         assertTrue(GradingProgram.studentAmount(students));
@@ -53,7 +51,7 @@ public class GradingProgramTest {
     //testing if grades correct rounded
     @Test
     void gradingStudents_valid_list() {
-        List<Integer> studentsGradesActual = new ArrayList<>(Arrays.asList(4, 73, 67, 38, 33)); //https://www.geeksforgeeks.org/initialize-an-arraylist-in-java/
+        List<Integer> studentsGradesActual = new ArrayList<>(Arrays.asList(73, 67, 38, 33)); //https://www.geeksforgeeks.org/initialize-an-arraylist-in-java/
         List<Integer> studentsGradesExpected = new ArrayList<>((Arrays.asList(75, 67, 40, 33)));
 
         assertEquals(studentsGradesExpected, GradingProgram.gradingStudents(studentsGradesActual));
@@ -83,5 +81,16 @@ public class GradingProgramTest {
         int actual = GradingProgram.roundGrade(62);
         int expected = 62;
         assertEquals(expected, actual);
+    }
+    @Test
+    void points_marked_as_failed_Exam(){
+        int points = 30;
+
+        assertFalse(GradingProgram.passed_Exam(points));
+    }
+    @Test
+    void points_marked_as_passed_Exam() {
+        int points = 50;
+        assertTrue(GradingProgram.passed_Exam(points));
     }
 }

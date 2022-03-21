@@ -7,7 +7,7 @@ public class GradingProgram {
     public static final int MODULO_FACTOR = 5;
     public static final int SCHWELLE = 3;
 
-    protected static boolean studentAmount(int students) { //ist dann auch die anzahl der Noten = Länge vom Array
+    protected static boolean studentAmount(int students) {
         return (students > 0 && students <= 60);
     }
 
@@ -31,11 +31,8 @@ public class GradingProgram {
         return finaleGrade;
     }
 
-    public static Object totalStudent(List<Integer> studentsAndGrades) {
-        Integer students;
-
-        students = studentsAndGrades.get(0);
-        return students;
+    public static boolean passed_Exam(int pointsOccursaFail) {
+        return pointsOccursaFail > 40;
     }
 }
 
