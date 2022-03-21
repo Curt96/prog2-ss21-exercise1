@@ -21,6 +21,7 @@ public class GradingProgram {
             for (int i = 1; i < grades.size(); i++) {
                 studentsGrades.add(roundGrade(grades.get(i)));
             }
+
         }
         return studentsGrades;
     }
