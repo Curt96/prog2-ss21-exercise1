@@ -2,22 +2,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GradingProgram {
-    public static boolean studentAmount(int students) { //ist dann auch die anzahl der Noten = Länge vom Array
-        if (students < 1 || students > 60) {
-            return false;
-        } else
-            return true;
+    protected static boolean studentAmount(int students) { //ist dann auch die anzahl der Noten = Länge vom Array
+        return (students > 0 && students <= 60);
     }
 
-    public static boolean gradePoints(int points) {
-        if (points < 0 || points > 100) {
-            return false;
-        } else {
-            return true;
-        }
+    protected static boolean gradePoints(int points) {
+        return points >= 0 && points <= 100;
     }
 
-    public static List<Integer> gradingStudents(List<Integer> grades) {
+    protected static List<Integer> gradingStudents(List<Integer> grades) {
         List<Integer> studentsGrades = new ArrayList<>();
         for (Integer i : grades) {
             System.out.println(i + " Vor dem if");
@@ -50,6 +43,13 @@ public class GradingProgram {
         return actual;
     } */
         }
+
+    public static Object totalStudent(List<Integer> studentsAndGrades) {
+        Integer students;
+
+        students = studentsAndGrades.get(0);
+        return students;
+    }
 }
 
 
